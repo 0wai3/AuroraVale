@@ -1,0 +1,3162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>AuroraVale Admin Dashboard</title>
+
+<meta
+name="robots"
+content="noindex, nofollow"
+>
+
+<link
+rel="stylesheet"
+href="assets/css/admin.css"
+>
+
+<style>
+
+.payment-screenshot-panel {
+    margin-top: 28px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    background: rgba(255,255,255,.025);
+}
+
+.payment-screenshot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.payment-screenshot-header h3 {
+    margin: 0;
+}
+
+.payment-screenshot-header p {
+    margin: 7px 0 0;
+    color: rgba(255,255,255,.6);
+    font-size: 14px;
+}
+
+.payment-screenshot-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 16px;
+}
+
+.payment-screenshot-preview {
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #07111f;
+}
+
+.payment-screenshot-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.payment-screenshot-message {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.035);
+    color: rgba(255,255,255,.65);
+    font-size: 14px;
+}
+
+.payment-screenshot-message.error {
+    color: #fca5a5;
+}
+
+.payment-screenshot-message.success {
+    color: #5eead4;
+}
+
+.payment-screenshot-loading {
+    padding: 18px;
+    color: rgba(255,255,255,.6);
+}
+
+.payment-view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border: 1px solid rgba(94,234,212,.25);
+    border-radius: 10px;
+    background: rgba(94,234,212,.07);
+    color: #5eead4;
+    cursor: pointer;
+    font: inherit;
+}
+
+.payment-view-button:hover {
+    background: rgba(94,234,212,.12);
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+<aside class="sidebar">
+
+
+<div class="sidebar-brand">
+
+<div class="logo">
+A
+</div>
+
+<div>
+
+<strong>
+AuroraVale
+</strong>
+
+<span>
+Administration
+</span>
+
+</div>
+
+</div>
+
+
+<nav class="sidebar-nav">
+
+<a
+href="#dashboard"
+class="nav-item active"
+data-section="dashboard"
+>
+
+<span>
+⌂
+</span>
+
+Dashboard
+
+</a>
+
+
+<a
+href="#applications"
+class="nav-item"
+data-section="applications"
+>
+
+<span>
+▣
+</span>
+
+Applications
+
+</a>
+
+
+<a
+href="#selected"
+class="nav-item"
+data-section="selected"
+>
+
+<span>
+✓
+</span>
+
+Selected
+
+</a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+<a
+href="index.html"
+class="nav-item"
+>
+
+<span>
+↗
+</span>
+
+View Website
+
+</a>
+
+</div>
+
+
+</aside>
+
+
+<main class="main-content">
+
+
+<header class="topbar">
+
+<div>
+
+<div class="topbar-label">
+AURORAVALE ADMINISTRATION
+</div>
+
+<h1 id="pageTitle">
+Dashboard
+</h1>
+
+</div>
+
+
+<div class="topbar-status">
+
+<span class="status-dot"></span>
+
+API Connected
+
+</div>
+
+</header>
+
+
+<section
+id="dashboard"
+class="admin-section active-section"
+>
+
+
+<div class="welcome-block">
+
+<div>
+
+<h2>
+Application Overview
+</h2>
+
+<p>
+Monitor applications and manage participation status.
+</p>
+
+</div>
+
+
+<button
+class="refresh-button"
+id="refreshButton"
+>
+
+↻ Refresh
+
+</button>
+
+</div>
+
+
+<div class="stats-grid">
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+01
+</div>
+
+<div>
+
+<span>
+Total Applications
+</span>
+
+<strong id="totalApplications">
+0
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon verified">
+✓
+</div>
+
+<div>
+
+<span>
+Email Verified
+</span>
+
+<strong id="verifiedApplications">
+0
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon pending">
+!
+</div>
+
+<div>
+
+<span>
+Pending Verification
+</span>
+
+<strong id="pendingApplications">
+0
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon selected">
+★
+</div>
+
+<div>
+
+<span>
+Selected
+</span>
+
+<strong id="selectedApplications">
+0
+</strong>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="dashboard-grid">
+
+
+<div class="dashboard-card">
+
+<div class="card-heading">
+
+<div>
+
+<h3>
+Recent Applications
+</h3>
+
+<p>
+Latest applications received by AuroraVale.
+</p>
+
+</div>
+
+<button
+class="text-button"
+data-section-target="applications"
+>
+View All
+</button>
+
+</div>
+
+
+<div
+class="recent-list"
+id="recentApplications"
+>
+
+<div class="empty-state">
+Loading applications...
+</div>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-card">
+
+<div class="card-heading">
+
+<div>
+
+<h3>
+Program Status
+</h3>
+
+<p>
+Current application pipeline.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="status-list">
+
+
+<div class="status-row">
+
+<div>
+
+<strong>
+Applications
+</strong>
+
+<span>
+All submitted applications
+</span>
+
+</div>
+
+<strong id="pipelineTotal">
+0
+</strong>
+
+</div>
+
+
+<div class="status-row">
+
+<div>
+
+<strong>
+Verified
+</strong>
+
+<span>
+Email verification completed
+</span>
+
+</div>
+
+<strong id="pipelineVerified">
+0
+</strong>
+
+</div>
+
+
+<div class="status-row">
+
+<div>
+
+<strong>
+Under Review
+</strong>
+
+<span>
+Applications being reviewed
+</span>
+
+</div>
+
+<strong id="pipelineReview">
+0
+</strong>
+
+</div>
+
+
+<div class="status-row">
+
+<div>
+
+<strong>
+Selected
+</strong>
+
+<span>
+Participants selected
+</span>
+
+</div>
+
+<strong id="pipelineSelected">
+0
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section
+id="applications"
+class="admin-section"
+>
+
+
+<div class="section-heading">
+
+<div>
+
+<div class="eyebrow">
+APPLICATION MANAGEMENT
+</div>
+
+<h2>
+Applications
+</h2>
+
+<p>
+Review applicant information and manage application status.
+</p>
+
+</div>
+
+
+<button
+class="refresh-button"
+id="refreshApplications"
+>
+
+↻ Refresh
+
+</button>
+
+</div>
+
+
+<div class="filter-panel">
+
+
+<div class="search-box">
+
+<label for="searchInput">
+Search
+</label>
+
+<input
+id="searchInput"
+type="search"
+placeholder="Name, email or application number..."
+>
+
+</div>
+
+
+<div class="filter-box">
+
+<label for="countryFilter">
+Country
+</label>
+
+<select id="countryFilter">
+
+<option value="">
+All Countries
+</option>
+
+</select>
+
+</div>
+
+
+<div class="filter-box">
+
+<label for="destinationFilter">
+Destination
+</label>
+
+<select id="destinationFilter">
+
+<option value="">
+All Destinations
+</option>
+
+</select>
+
+</div>
+
+
+<div class="filter-box">
+
+<label for="verificationFilter">
+Email
+</label>
+
+<select id="verificationFilter">
+
+<option value="">
+All
+</option>
+
+<option value="verified">
+Verified
+</option>
+
+<option value="pending">
+Pending
+</option>
+
+</select>
+
+</div>
+
+
+<div class="filter-box">
+
+<label for="selectionFilter">
+Selection
+</label>
+
+<select id="selectionFilter">
+
+<option value="">
+All
+</option>
+
+<option value="under_review">
+Under Review
+</option>
+
+<option value="selected">
+Selected
+</option>
+
+<option value="declined">
+Declined
+</option>
+
+<option value="not_selected">
+Not Selected
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Application
+</th>
+
+<th>
+Applicant
+</th>
+
+<th>
+Country
+</th>
+
+<th>
+Destination
+</th>
+
+<th>
+Email
+</th>
+
+<th>
+Verification
+</th>
+
+<th>
+Payment
+</th>
+
+<th>
+Selection
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="applicationsTable">
+
+<tr>
+
+<td colspan="9">
+
+<div class="empty-state">
+Loading applications...
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div
+id="noResults"
+class="empty-state large"
+hidden
+>
+
+No applications match your filters.
+
+</div>
+
+
+</section>
+
+
+<section
+id="selected"
+class="admin-section"
+>
+
+
+<div class="section-heading">
+
+<div>
+
+<div class="eyebrow">
+PARTICIPATION
+</div>
+
+<h2>
+Selected Applicants
+</h2>
+
+<p>
+Applicants currently marked as selected.
+</p>
+
+</div>
+
+</div>
+
+
+<div
+class="selected-grid"
+id="selectedGrid"
+>
+
+<div class="empty-state">
+Loading selected applicants...
+</div>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<div
+class="modal-overlay"
+id="applicationModal"
+hidden
+>
+
+
+<div class="application-modal">
+
+
+<button
+class="modal-close"
+id="closeModal"
+aria-label="Close"
+>
+×
+</button>
+
+
+<div class="modal-header">
+
+<div>
+
+<div class="eyebrow">
+APPLICATION DETAILS
+</div>
+
+<h2 id="modalApplicantName">
+Applicant
+</h2>
+
+<span id="modalApplicationNumber">
+</span>
+
+</div>
+
+</div>
+
+
+<div class="modal-content">
+
+
+<div class="detail-grid">
+
+
+<div class="detail-item">
+
+<span>
+Country
+</span>
+
+<strong id="detailCountry">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+City
+</span>
+
+<strong id="detailCity">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Email
+</span>
+
+<strong id="detailEmail">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Phone
+</span>
+
+<strong id="detailPhone">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Organization
+</span>
+
+<strong id="detailOrganization">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Organization Type
+</span>
+
+<strong id="detailOrganizationType">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Role
+</span>
+
+<strong id="detailRole">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Preferred Destination
+</span>
+
+<strong id="detailDestination">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Passport Status
+</span>
+
+<strong id="detailPassport">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Email Verification
+</span>
+
+<strong id="detailVerification">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Payment Status
+</span>
+
+<strong id="detailPayment">
+—
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<span>
+Submitted
+</span>
+
+<strong id="detailCreated">
+—
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div class="detail-section">
+
+<h3>
+Participation Reason
+</h3>
+
+<p id="detailPurpose">
+—
+</p>
+
+</div>
+
+
+<div class="detail-section">
+
+<h3>
+Organization / Initiative Information
+</h3>
+
+<p id="detailOrganizationInfo">
+—
+</p>
+
+</div>
+
+
+<div class="detail-section">
+
+<h3>
+Additional Information
+</h3>
+
+<p id="detailAdditional">
+—
+</p>
+
+</div>
+
+
+<div class="payment-screenshot-panel">
+
+
+<div class="payment-screenshot-header">
+
+<div>
+
+<h3>
+Payment Screenshot
+</h3>
+
+<p>
+Review the payment confirmation submitted by the applicant.
+</p>
+
+</div>
+
+
+<button
+type="button"
+class="payment-view-button"
+id="loadPaymentScreenshotButton"
+>
+
+Load Screenshot
+
+</button>
+
+</div>
+
+
+<div
+id="paymentScreenshotMeta"
+class="payment-screenshot-meta"
+>
+
+No payment screenshot loaded.
+
+</div>
+
+
+<div
+id="paymentScreenshotArea"
+>
+
+<div class="payment-screenshot-message">
+
+Click “Load Screenshot” to retrieve the applicant's payment confirmation.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="management-panel">
+
+<h3>
+Manage Application
+</h3>
+
+
+<div class="management-grid">
+
+
+<div>
+
+<label for="participantStatus">
+Participant Status
+</label>
+
+<select id="participantStatus">
+
+<option value="application_pending">
+Application Pending
+</option>
+
+<option value="payment_pending">
+Payment Pending
+</option>
+
+<option value="participant">
+Participant
+</option>
+
+<option value="completed">
+Completed
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="selectionStatus">
+Selection Status
+</label>
+
+<select id="selectionStatus">
+
+<option value="not_selected">
+Not Selected
+</option>
+
+<option value="under_review">
+Under Review
+</option>
+
+<option value="selected">
+Selected
+</option>
+
+<option value="declined">
+Declined
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+id="saveStatusButton"
+class="primary-button"
+>
+
+Save Status
+
+</button>
+
+
+<p
+id="modalStatus"
+class="modal-status"
+></p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const API_BASE_URL =
+"http://localhost:5000/api";
+
+const ADMIN_TOKEN_KEY =
+"auroravale_admin_token";
+
+
+function getAdminHeaders(
+    includeJson = false
+) {
+
+    const token =
+        localStorage.getItem(
+            ADMIN_TOKEN_KEY
+        );
+
+    const headers = {};
+
+    if (includeJson) {
+
+        headers[
+            "Content-Type"
+        ] = "application/json";
+
+    }
+
+    if (token) {
+
+        headers[
+            "Authorization"
+        ] =
+            `Bearer ${token}`;
+
+    }
+
+    return headers;
+
+}
+
+
+function handleUnauthorized() {
+
+    localStorage.removeItem(
+        ADMIN_TOKEN_KEY
+    );
+
+    window.location.href =
+        "admin-login.html";
+
+}
+
+
+let applications = [];
+
+let currentApplication = null;
+
+
+const totalApplications =
+document.getElementById(
+    "totalApplications"
+);
+
+const verifiedApplications =
+document.getElementById(
+    "verifiedApplications"
+);
+
+const pendingApplications =
+document.getElementById(
+    "pendingApplications"
+);
+
+const selectedApplications =
+document.getElementById(
+    "selectedApplications"
+);
+
+const applicationsTable =
+document.getElementById(
+    "applicationsTable"
+);
+
+const recentApplications =
+document.getElementById(
+    "recentApplications"
+);
+
+const selectedGrid =
+document.getElementById(
+    "selectedGrid"
+);
+
+const noResults =
+document.getElementById(
+    "noResults"
+);
+
+const searchInput =
+document.getElementById(
+    "searchInput"
+);
+
+const countryFilter =
+document.getElementById(
+    "countryFilter"
+);
+
+const destinationFilter =
+document.getElementById(
+    "destinationFilter"
+);
+
+const verificationFilter =
+document.getElementById(
+    "verificationFilter"
+);
+
+const selectionFilter =
+document.getElementById(
+    "selectionFilter"
+);
+
+const modal =
+document.getElementById(
+    "applicationModal"
+);
+
+const closeModal =
+document.getElementById(
+    "closeModal"
+);
+
+const paymentScreenshotArea =
+document.getElementById(
+    "paymentScreenshotArea"
+);
+
+const paymentScreenshotMeta =
+document.getElementById(
+    "paymentScreenshotMeta"
+);
+
+const loadPaymentScreenshotButton =
+document.getElementById(
+    "loadPaymentScreenshotButton"
+);
+
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function formatDate(value) {
+
+    if (!value) {
+
+        return "—";
+
+    }
+
+    return new Date(
+        value
+    ).toLocaleDateString(
+        undefined,
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    );
+
+}
+
+
+function formatDateTime(value) {
+
+    if (!value) {
+
+        return "—";
+
+    }
+
+    return new Date(
+        value
+    ).toLocaleString(
+        undefined,
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+function statusLabel(status) {
+
+    const labels = {
+
+        application_pending:
+            "Application Pending",
+
+        payment_pending:
+            "Payment Pending",
+
+        participant:
+            "Participant",
+
+        completed:
+            "Completed",
+
+        not_selected:
+            "Not Selected",
+
+        under_review:
+            "Under Review",
+
+        selected:
+            "Selected",
+
+        declined:
+            "Declined"
+
+    };
+
+    return (
+        labels[status] ||
+        status ||
+        "—"
+    );
+
+}
+
+
+function paymentLabel(status) {
+
+    const labels = {
+
+        pending:
+            "Pending",
+
+        screenshot_received:
+            "Screenshot Received",
+
+        verified:
+            "Verified",
+
+        rejected:
+            "Rejected"
+
+    };
+
+    return (
+        labels[status] ||
+        status ||
+        "—"
+    );
+
+}
+
+
+function paymentBadgeClass(status) {
+
+    if (
+        status === "verified"
+    ) {
+
+        return "badge-success";
+
+    }
+
+    if (
+        status === "screenshot_received"
+    ) {
+
+        return "badge-info";
+
+    }
+
+    if (
+        status === "rejected"
+    ) {
+
+        return "badge-danger";
+
+    }
+
+    return "badge-warning";
+
+}
+
+
+function verificationLabel(
+    verified
+) {
+
+    return verified
+        ? "Verified"
+        : "Pending";
+
+}
+
+
+function updateStatistics() {
+
+    const total =
+        applications.length;
+
+    const verified =
+        applications.filter(
+            application =>
+                application.email_verified
+        ).length;
+
+    const selected =
+        applications.filter(
+            application =>
+                application.selection_status ===
+                "selected"
+        ).length;
+
+    const pending =
+        total - verified;
+
+    const review =
+        applications.filter(
+            application =>
+                application.selection_status ===
+                "under_review"
+        ).length;
+
+
+    totalApplications.textContent =
+        total;
+
+    verifiedApplications.textContent =
+        verified;
+
+    pendingApplications.textContent =
+        pending;
+
+    selectedApplications.textContent =
+        selected;
+
+
+    document.getElementById(
+        "pipelineTotal"
+    ).textContent =
+        total;
+
+    document.getElementById(
+        "pipelineVerified"
+    ).textContent =
+        verified;
+
+    document.getElementById(
+        "pipelineReview"
+    ).textContent =
+        review;
+
+    document.getElementById(
+        "pipelineSelected"
+    ).textContent =
+        selected;
+
+}
+
+
+function populateFilters() {
+
+    const countries =
+        [
+            ...new Set(
+                applications
+                    .map(
+                        application =>
+                            application.country
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort();
+
+    const destinations =
+        [
+            ...new Set(
+                applications
+                    .map(
+                        application =>
+                            application.preferred_destination
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort();
+
+
+    const currentCountry =
+        countryFilter.value;
+
+    const currentDestination =
+        destinationFilter.value;
+
+
+    countryFilter.innerHTML =
+        `<option value="">All Countries</option>`;
+
+
+    countries.forEach(
+        country => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                country;
+
+            option.textContent =
+                country;
+
+            countryFilter.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    destinationFilter.innerHTML =
+        `<option value="">All Destinations</option>`;
+
+
+    destinations.forEach(
+        destination => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                destination;
+
+            option.textContent =
+                destination;
+
+            destinationFilter.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    if (
+        countries.includes(
+            currentCountry
+        )
+    ) {
+
+        countryFilter.value =
+            currentCountry;
+
+    }
+
+
+    if (
+        destinations.includes(
+            currentDestination
+        )
+    ) {
+
+        destinationFilter.value =
+            currentDestination;
+
+    }
+
+}
+
+
+function getFilteredApplications() {
+
+    const search =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+    const country =
+        countryFilter.value;
+
+    const destination =
+        destinationFilter.value;
+
+    const verification =
+        verificationFilter.value;
+
+    const selection =
+        selectionFilter.value;
+
+
+    return applications.filter(
+        application => {
+
+            const searchMatch =
+                !search ||
+                String(
+                    application.full_name ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(search) ||
+
+                String(
+                    application.email ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(search) ||
+
+                String(
+                    application.application_number ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(search);
+
+
+            const countryMatch =
+                !country ||
+                application.country ===
+                    country;
+
+
+            const destinationMatch =
+                !destination ||
+                application.preferred_destination ===
+                    destination;
+
+
+            const verificationMatch =
+                !verification ||
+                (
+                    verification ===
+                    "verified"
+                        ? application.email_verified
+                        : !application.email_verified
+                );
+
+
+            const selectionMatch =
+                !selection ||
+                application.selection_status ===
+                    selection;
+
+
+            return (
+                searchMatch &&
+                countryMatch &&
+                destinationMatch &&
+                verificationMatch &&
+                selectionMatch
+            );
+
+        }
+    );
+
+}
+
+
+function renderApplications() {
+
+    const filtered =
+        getFilteredApplications();
+
+
+    applicationsTable.innerHTML =
+        "";
+
+
+    if (
+        filtered.length === 0
+    ) {
+
+        noResults.hidden =
+            false;
+
+        applicationsTable.innerHTML =
+            `
+            <tr>
+            <td colspan="9">
+            <div class="empty-state">
+            No applications match your filters.
+            </div>
+            </td>
+            </tr>
+            `;
+
+        return;
+
+    }
+
+
+    noResults.hidden =
+        true;
+
+
+    filtered.forEach(
+        application => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            row.innerHTML = `
+
+<td>
+
+<button
+class="application-number"
+data-id="${escapeHtml(application.id)}"
+>
+
+${escapeHtml(
+    application.application_number
+)}
+
+</button>
+
+</td>
+
+
+<td>
+
+<div class="applicant-cell">
+
+<strong>
+${escapeHtml(
+    application.full_name
+)}
+</strong>
+
+<span>
+${escapeHtml(
+    application.city || ""
+)}
+</span>
+
+</div>
+
+</td>
+
+
+<td>
+${escapeHtml(
+    application.country || "—"
+)}
+</td>
+
+
+<td>
+${escapeHtml(
+    application.preferred_destination || "—"
+)}
+</td>
+
+
+<td>
+${escapeHtml(
+    application.email || "—"
+)}
+</td>
+
+
+<td>
+
+<span class="badge ${
+    application.email_verified
+        ? "badge-success"
+        : "badge-warning"
+}">
+
+${
+    application.email_verified
+        ? "Verified"
+        : "Pending"
+}
+
+</span>
+
+</td>
+
+
+<td>
+
+<span class="badge ${
+    paymentBadgeClass(
+        application.payment_status
+    )
+}">
+
+${escapeHtml(
+    paymentLabel(
+        application.payment_status
+    )
+)}
+
+</span>
+
+</td>
+
+
+<td>
+
+<span class="badge ${
+    application.selection_status ===
+    "selected"
+        ? "badge-success"
+        : application.selection_status ===
+          "declined"
+            ? "badge-danger"
+            : application.selection_status ===
+              "under_review"
+                ? "badge-info"
+                : "badge-neutral"
+}">
+
+${escapeHtml(
+    statusLabel(
+        application.selection_status
+    )
+)}
+
+</span>
+
+</td>
+
+
+<td>
+${escapeHtml(
+    formatDate(
+        application.created_at
+    )
+)}
+</td>
+
+`;
+
+            applicationsTable.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+function renderRecentApplications() {
+
+    const recent =
+        [
+            ...applications
+        ]
+        .sort(
+            (
+                a,
+                b
+            ) =>
+                new Date(
+                    b.created_at
+                ) -
+                new Date(
+                    a.created_at
+                )
+        )
+        .slice(
+            0,
+            6
+        );
+
+
+    if (
+        recent.length === 0
+    ) {
+
+        recentApplications.innerHTML =
+            `
+            <div class="empty-state">
+            No applications yet.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    recentApplications.innerHTML =
+        recent.map(
+            application => `
+
+<button
+class="recent-item"
+data-id="${escapeHtml(application.id)}"
+>
+
+<div>
+
+<strong>
+${escapeHtml(
+    application.full_name
+)}
+</strong>
+
+<span>
+${escapeHtml(
+    application.application_number
+)}
+</span>
+
+</div>
+
+<div>
+${escapeHtml(
+    formatDate(
+        application.created_at
+    )
+)}
+</div>
+
+</button>
+
+`
+        ).join("");
+
+}
+
+
+function renderSelectedApplications() {
+
+    const selected =
+        applications.filter(
+            application =>
+                application.selection_status ===
+                "selected"
+        );
+
+
+    if (
+        selected.length === 0
+    ) {
+
+        selectedGrid.innerHTML =
+            `
+            <div class="empty-state">
+            No applicants have been selected yet.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    selectedGrid.innerHTML =
+        selected.map(
+            application => `
+
+<div class="selected-card">
+
+<div class="selected-card-top">
+
+<div class="selected-avatar">
+${escapeHtml(
+    (
+        application.full_name ||
+        "A"
+    )
+    .charAt(0)
+    .toUpperCase()
+)}
+</div>
+
+<div class="selected-details">
+
+<strong>
+${escapeHtml(
+    application.full_name
+)}
+</strong>
+
+<span>
+${escapeHtml(
+    application.country
+)}
+</span>
+
+</div>
+
+</div>
+
+
+<button
+class="secondary-button selected-view"
+data-id="${escapeHtml(application.id)}"
+>
+
+View Application
+
+</button>
+
+</div>
+
+`
+        ).join("");
+
+}
+
+
+async function loadApplications() {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/admin/applications`,
+                {
+                    method: "GET",
+                    headers:
+                        getAdminHeaders()
+                }
+            );
+
+
+        if (
+            response.status === 401
+        ) {
+
+            handleUnauthorized();
+
+            return;
+
+        }
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                `Server returned ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to load applications."
+            );
+
+        }
+
+
+        applications =
+            data.applications ||
+            [];
+
+
+        updateStatistics();
+
+        populateFilters();
+
+        renderApplications();
+
+        renderRecentApplications();
+
+        renderSelectedApplications();
+
+    }
+    catch (error) {
+
+        applicationsTable.innerHTML =
+            `
+            <tr>
+            <td colspan="9">
+            <div class="empty-state">
+            ${escapeHtml(
+                error.message ||
+                "Unable to load applications."
+            )}
+            </div>
+            </td>
+            </tr>
+            `;
+
+    }
+
+}
+
+
+async function openApplication(
+    id
+) {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/admin/applications/${encodeURIComponent(
+                    id
+                )}`,
+                {
+                    method: "GET",
+                    headers:
+                        getAdminHeaders()
+                }
+            );
+
+
+        if (
+            response.status === 401
+        ) {
+
+            handleUnauthorized();
+
+            return;
+
+        }
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                `Server returned ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to load application."
+            );
+
+        }
+
+
+        currentApplication =
+            data.application;
+
+
+        populateModal(
+            currentApplication
+        );
+
+
+        modal.hidden =
+            false;
+
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+    }
+    catch (error) {
+
+        alert(
+            error.message ||
+            "Unable to load application."
+        );
+
+    }
+
+}
+
+
+function populateModal(
+    application
+) {
+
+    document.getElementById(
+        "modalApplicantName"
+    ).textContent =
+        application.full_name ||
+        "Applicant";
+
+
+    document.getElementById(
+        "modalApplicationNumber"
+    ).textContent =
+        application.application_number ||
+        "—";
+
+
+    document.getElementById(
+        "detailCountry"
+    ).textContent =
+        application.country ||
+        "—";
+
+
+    document.getElementById(
+        "detailCity"
+    ).textContent =
+        application.city ||
+        "—";
+
+
+    document.getElementById(
+        "detailEmail"
+    ).textContent =
+        application.email ||
+        "—";
+
+
+    document.getElementById(
+        "detailPhone"
+    ).textContent =
+        application.phone ||
+        "—";
+
+
+    document.getElementById(
+        "detailOrganization"
+    ).textContent =
+        application.organization_name ||
+        "—";
+
+
+    document.getElementById(
+        "detailOrganizationType"
+    ).textContent =
+        application.organization_type ||
+        "—";
+
+
+    document.getElementById(
+        "detailRole"
+    ).textContent =
+        application.representative_role ||
+        "—";
+
+
+    document.getElementById(
+        "detailDestination"
+    ).textContent =
+        application.preferred_destination ||
+        "—";
+
+
+    document.getElementById(
+        "detailPassport"
+    ).textContent =
+        application.passport_status ||
+        "—";
+
+
+    document.getElementById(
+        "detailVerification"
+    ).textContent =
+        verificationLabel(
+            application.email_verified
+        );
+
+
+    document.getElementById(
+        "detailPayment"
+    ).textContent =
+        paymentLabel(
+            application.payment_status
+        );
+
+
+    document.getElementById(
+        "detailCreated"
+    ).textContent =
+        formatDateTime(
+            application.created_at
+        );
+
+
+    document.getElementById(
+        "detailPurpose"
+    ).textContent =
+        application.participation_reason ||
+        "—";
+
+
+    document.getElementById(
+        "detailOrganizationInfo"
+    ).textContent =
+        application.organization_information ||
+        "—";
+
+
+    document.getElementById(
+        "detailAdditional"
+    ).textContent =
+        application.additional_information ||
+        "—";
+
+
+    document.getElementById(
+        "participantStatus"
+    ).value =
+        application.participant_status ||
+        "application_pending";
+
+
+    document.getElementById(
+        "selectionStatus"
+    ).value =
+        application.selection_status ||
+        "not_selected";
+
+
+    document.getElementById(
+        "modalStatus"
+    ).textContent =
+        "";
+
+
+    resetPaymentScreenshot();
+
+}
+
+
+function resetPaymentScreenshot() {
+
+    paymentScreenshotMeta.textContent =
+        "No payment screenshot loaded.";
+
+
+    paymentScreenshotArea.innerHTML =
+        `
+        <div class="payment-screenshot-message">
+        Click “Load Screenshot” to retrieve the applicant's payment confirmation.
+        </div>
+        `;
+
+
+    loadPaymentScreenshotButton.disabled =
+        false;
+
+
+    loadPaymentScreenshotButton.textContent =
+        "Load Screenshot";
+
+}
+
+
+async function loadPaymentScreenshot() {
+
+    if (
+        !currentApplication
+    ) {
+
+        return;
+
+    }
+
+
+    loadPaymentScreenshotButton.disabled =
+        true;
+
+
+    loadPaymentScreenshotButton.textContent =
+        "Loading...";
+
+
+    paymentScreenshotMeta.textContent =
+        "Retrieving payment confirmation...";
+
+
+    paymentScreenshotArea.innerHTML =
+        `
+        <div class="payment-screenshot-loading">
+        Loading payment screenshot...
+        </div>
+        `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/admin/applications/${encodeURIComponent(
+                    currentApplication.id
+                )}/payment-screenshot`,
+                {
+                    method: "GET",
+
+                    headers:
+                        getAdminHeaders()
+                }
+            );
+
+
+        if (
+            response.status === 401
+        ) {
+
+            handleUnauthorized();
+
+            return;
+
+        }
+
+
+        if (
+            response.status === 404
+        ) {
+
+            paymentScreenshotMeta.textContent =
+                "No payment screenshot is available.";
+
+
+            paymentScreenshotArea.innerHTML =
+                `
+                <div class="payment-screenshot-message">
+                The applicant has not uploaded a payment screenshot yet.
+                </div>
+                `;
+
+            return;
+
+        }
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                `Server returned ${response.status}`
+            );
+
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        const imageUrl =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        paymentScreenshotMeta.textContent =
+            "Payment screenshot received.";
+
+
+        paymentScreenshotArea.innerHTML =
+            `
+
+            <img
+            src="${imageUrl}"
+            alt="Payment screenshot submitted by applicant"
+            class="payment-screenshot-preview"
+            >
+
+            <div class="payment-screenshot-actions">
+
+            <a
+            href="${imageUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="secondary-button"
+            >
+            Open Full Size
+            </a>
+
+            </div>
+
+            `;
+
+    }
+    catch (error) {
+
+        paymentScreenshotMeta.textContent =
+            "Unable to load payment screenshot.";
+
+
+        paymentScreenshotArea.innerHTML =
+            `
+            <div class="payment-screenshot-message error">
+            ${escapeHtml(
+                error.message ||
+                "Unable to retrieve the payment screenshot."
+            )}
+            </div>
+            `;
+
+    }
+    finally {
+
+        loadPaymentScreenshotButton.disabled =
+            false;
+
+        loadPaymentScreenshotButton.textContent =
+            "Reload Screenshot";
+
+    }
+
+}
+
+
+async function saveStatus() {
+
+    if (
+        !currentApplication
+    ) {
+
+        return;
+
+    }
+
+
+    const participantStatus =
+        document.getElementById(
+            "participantStatus"
+        ).value;
+
+
+    const selectionStatus =
+        document.getElementById(
+            "selectionStatus"
+        ).value;
+
+
+    const saveButton =
+        document.getElementById(
+            "saveStatusButton"
+        );
+
+
+    const modalStatus =
+        document.getElementById(
+            "modalStatus"
+        );
+
+
+    saveButton.disabled =
+        true;
+
+
+    saveButton.textContent =
+        "Saving...";
+
+
+    modalStatus.textContent =
+        "";
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/admin/applications/${encodeURIComponent(
+                    currentApplication.id
+                )}/status`,
+                {
+                    method: "PATCH",
+
+                    headers:
+                        getAdminHeaders(
+                            true
+                        ),
+
+                    body:
+                        JSON.stringify({
+                            participantStatus,
+                            selectionStatus
+                        })
+                }
+            );
+
+
+        if (
+            response.status === 401
+        ) {
+
+            handleUnauthorized();
+
+            return;
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to update status."
+            );
+
+        }
+
+
+        modalStatus.textContent =
+            "Status updated successfully.";
+
+
+        modalStatus.className =
+            "modal-status success";
+
+
+        await loadApplications();
+
+
+        const updated =
+            applications.find(
+                application =>
+                    application.id ===
+                    currentApplication.id
+            );
+
+
+        if (updated) {
+
+            currentApplication =
+                updated;
+
+            populateModal(
+                updated
+            );
+
+            document.getElementById(
+                "modalStatus"
+            ).textContent =
+                "Status updated successfully.";
+
+            document.getElementById(
+                "modalStatus"
+            ).className =
+                "modal-status success";
+
+        }
+
+    }
+    catch (error) {
+
+        modalStatus.textContent =
+            error.message ||
+            "Unable to update status.";
+
+        modalStatus.className =
+            "modal-status error";
+
+    }
+    finally {
+
+        saveButton.disabled =
+            false;
+
+        saveButton.textContent =
+            "Save Status";
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const applicationButton =
+            event.target.closest(
+                ".application-number"
+            );
+
+
+        if (
+            applicationButton
+        ) {
+
+            openApplication(
+                applicationButton.dataset.id
+            );
+
+            return;
+
+        }
+
+
+        const recentButton =
+            event.target.closest(
+                ".recent-item"
+            );
+
+
+        if (
+            recentButton
+        ) {
+
+            openApplication(
+                recentButton.dataset.id
+            );
+
+            return;
+
+        }
+
+
+        const selectedButton =
+            event.target.closest(
+                ".selected-view"
+            );
+
+
+        if (
+            selectedButton
+        ) {
+
+            openApplication(
+                selectedButton.dataset.id
+            );
+
+            return;
+
+        }
+
+
+        const sectionButton =
+            event.target.closest(
+                "[data-section-target]"
+            );
+
+
+        if (
+            sectionButton
+        ) {
+
+            showSection(
+                sectionButton.dataset.sectionTarget
+            );
+
+        }
+
+    }
+);
+
+
+function showSection(
+    sectionId
+) {
+
+    document
+        .querySelectorAll(
+            ".admin-section"
+        )
+        .forEach(
+            section => {
+
+                section.classList.remove(
+                    "active-section"
+                );
+
+            }
+        );
+
+
+    const section =
+        document.getElementById(
+            sectionId
+        );
+
+
+    if (
+        section
+    ) {
+
+        section.classList.add(
+            "active-section"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".nav-item[data-section]"
+        )
+        .forEach(
+            item => {
+
+                item.classList.toggle(
+                    "active",
+                    item.dataset.section ===
+                    sectionId
+                );
+
+            }
+        );
+
+
+    const titles = {
+
+        dashboard:
+            "Dashboard",
+
+        applications:
+            "Applications",
+
+        selected:
+            "Selected Applicants"
+
+    };
+
+
+    document.getElementById(
+        "pageTitle"
+    ).textContent =
+        titles[sectionId] ||
+        "Dashboard";
+
+
+    window.location.hash =
+        sectionId;
+
+}
+
+
+document
+    .querySelectorAll(
+        ".nav-item[data-section]"
+    )
+    .forEach(
+        item => {
+
+            item.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    showSection(
+                        this.dataset.section
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+[
+    searchInput,
+    countryFilter,
+    destinationFilter,
+    verificationFilter,
+    selectionFilter
+].forEach(
+    element => {
+
+        element.addEventListener(
+            "input",
+            renderApplications
+        );
+
+        element.addEventListener(
+            "change",
+            renderApplications
+        );
+
+    }
+);
+
+
+document.getElementById(
+    "refreshButton"
+).addEventListener(
+    "click",
+    loadApplications
+);
+
+
+document.getElementById(
+    "refreshApplications"
+).addEventListener(
+    "click",
+    loadApplications
+);
+
+
+document.getElementById(
+    "saveStatusButton"
+).addEventListener(
+    "click",
+    saveStatus
+);
+
+
+loadPaymentScreenshotButton.addEventListener(
+    "click",
+    loadPaymentScreenshot
+);
+
+
+closeModal.addEventListener(
+    "click",
+    function() {
+
+        modal.hidden =
+            true;
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    }
+);
+
+
+modal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === modal
+        ) {
+
+            modal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            !modal.hidden
+        ) {
+
+            modal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+    }
+);
+
+
+const initialSection =
+    window.location.hash.replace(
+        "#",
+        ""
+    );
+
+
+if (
+    initialSection &&
+    document.getElementById(
+        initialSection
+    )
+) {
+
+    showSection(
+        initialSection
+    );
+
+}
+
+
+loadApplications();
+
+</script>
+
+
+</body>
+
+</html>

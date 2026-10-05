@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AuroraVale Admin Login</title>
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="assets/css/admin.css">
+
+<style>
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(30, 144, 255, .10),
+            transparent 35%
+        ),
+        #07111f;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 42px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    background: rgba(12, 25, 43, .92);
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.login-logo {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #38bdf8,
+        #8b5cf6
+    );
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.login-brand strong {
+    display: block;
+    color: white;
+    font-size: 20px;
+}
+
+.login-brand span {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255,255,255,.5);
+    font-size: 13px;
+}
+
+.login-card h1 {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+}
+
+.login-card > p {
+    margin: 10px 0 28px;
+    color: rgba(255,255,255,.58);
+    line-height: 1.6;
+}
+
+.login-field {
+    margin-bottom: 20px;
+}
+
+.login-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,.78);
+    font-size: 14px;
+}
+
+.login-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255,255,255,.045);
+    color: white;
+    font: inherit;
+}
+
+.login-field input:focus {
+    border-color: rgba(94,234,212,.55);
+    box-shadow: 0 0 0 3px rgba(94,234,212,.08);
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 6px;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #14b8a6,
+        #0ea5e9
+    );
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    opacity: .92;
+}
+
+.login-button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.login-status {
+    min-height: 22px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.login-status.error {
+    color: #fca5a5;
+}
+
+.login-status.success {
+    color: #5eead4;
+}
+
+.back-link {
+    display: block;
+    margin-top: 24px;
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-page">
+
+<div class="login-card">
+
+<div class="login-brand">
+
+<div class="login-logo">
+A
+</div>
+
+<div>
+
+<strong>
+AuroraVale
+</strong>
+
+<span>
+Administration Portal
+</span>
+
+</div>
+
+</div>
+
+<h1>
+Admin Login
+</h1>
+
+<p>
+Sign in to manage applications, payment confirmations and participant status.
+</p>
+
+<form id="loginForm">
+
+<div class="login-field">
+
+<label for="username">
+Username
+</label>
+
+<input
+id="username"
+name="username"
+type="text"
+autocomplete="username"
+required
+>
+
+</div>
+
+<div class="login-field">
+
+<label for="password">
+Password
+</label>
+
+<input
+id="password"
+name="password"
+type="password"
+autocomplete="current-password"
+required
+>
+
+</div>
+
+<button
+id="loginButton"
+class="login-button"
+type="submit"
+>
+Sign In
+</button>
+
+<div
+id="loginStatus"
+class="login-status"
+role="status"
+aria-live="polite"
+></div>
+
+</form>
+
+<a
+href="index.html"
+class="back-link"
+>
+← Back to AuroraVale website
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const API_BASE_URL =
+"http://localhost:5000/api";
+
+const TOKEN_KEY =
+"auroravale_admin_token";
+
+const loginForm =
+document.getElementById(
+"loginForm"
+);
+
+const loginButton =
+document.getElementById(
+"loginButton"
+);
+
+const loginStatus =
+document.getElementById(
+"loginStatus"
+);
+
+async function checkExistingLogin() {
+
+const existingToken =
+localStorage.getItem(
+TOKEN_KEY
+);
+
+if (!existingToken) {
+return;
+}
+
+try {
+
+const response =
+await fetch(
+`${API_BASE_URL}/admin/auth/session`,
+{
+method: "GET",
+
+headers: {
+"Authorization":
+`Bearer ${existingToken}`
+}
+}
+);
+
+if (
+response.ok
+) {
+
+const data =
+await response.json();
+
+if (
+data.authenticated
+) {
+
+window.location.replace(
+"admin.html"
+);
+
+}
+
+}
+
+}
+catch (error) {
+
+localStorage.removeItem(
+TOKEN_KEY
+);
+
+}
+
+}
+
+loginForm.addEventListener(
+"submit",
+async function(event) {
+
+event.preventDefault();
+
+const username =
+document.getElementById(
+"username"
+).value.trim();
+
+const password =
+document.getElementById(
+"password"
+).value;
+
+loginStatus.textContent =
+"";
+
+loginStatus.className =
+"login-status";
+
+loginButton.disabled =
+true;
+
+loginButton.textContent =
+"Signing In...";
+
+try {
+
+const response =
+await fetch(
+`${API_BASE_URL}/admin/auth/login`,
+{
+method: "POST",
+
+headers: {
+"Content-Type":
+"application/json"
+},
+
+body: JSON.stringify({
+username,
+password
+})
+}
+);
+
+const data =
+await response.json();
+
+if (
+!response.ok ||
+!data.success ||
+!data.token
+) {
+
+throw new Error(
+data.message ||
+"Invalid username or password."
+);
+
+}
+
+localStorage.setItem(
+TOKEN_KEY,
+data.token
+);
+
+loginStatus.textContent =
+"Login successful. Opening admin dashboard...";
+
+loginStatus.className =
+"login-status success";
+
+window.location.replace(
+"admin.html"
+);
+
+}
+catch (error) {
+
+localStorage.removeItem(
+TOKEN_KEY
+);
+
+loginStatus.textContent =
+error.message ||
+"Unable to sign in.";
+
+loginStatus.className =
+"login-status error";
+
+}
+finally {
+
+loginButton.disabled =
+false;
+
+loginButton.textContent =
+"Sign In";
+
+}
+
+}
+);
+
+checkExistingLogin();
+
+</script>
+
+</body>
+</html>

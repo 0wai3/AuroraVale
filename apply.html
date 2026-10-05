@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply for Global Travel Programs | AuroraVale</title>
+
+<meta name="description" content="Apply to participate in AuroraVale international travel programs. Applicants from different countries can submit basic information, verify their email and complete the $20 participation application stage.">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#07111f">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+.form-card {
+    color: #17263d !important;
+}
+
+.form-card h1,
+.form-card h2,
+.form-card h3,
+.form-card h4,
+.form-card h5,
+.form-card h6 {
+    color: #102038 !important;
+}
+
+.form-card p {
+    color: #52627a !important;
+}
+
+.form-card label {
+    color: #17263d !important;
+}
+
+.form-card strong {
+    color: #102038 !important;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    color: #17263d !important;
+    background-color: #ffffff !important;
+    border-color: #d7e0e8 !important;
+}
+
+.form-card input::placeholder,
+.form-card textarea::placeholder {
+    color: #7b8798 !important;
+    opacity: 1 !important;
+}
+
+.form-card select option {
+    color: #17263d !important;
+    background-color: #ffffff !important;
+}
+
+.form-card .field label {
+    color: #17263d !important;
+}
+
+.form-card .check {
+    color: #52627a !important;
+}
+
+.form-card .check span {
+    color: #52627a !important;
+}
+
+.form-card .check input {
+    accent-color: #35d9ca;
+}
+
+.form-card #formStatus,
+.form-card #verificationStatus,
+.form-card #paymentStatus {
+    color: #159b94 !important;
+}
+
+.form-card #verificationEmail {
+    color: #159b94 !important;
+    font-weight: 600;
+}
+
+.form-card #applicationNumberDisplay {
+    color: #35d9ca !important;
+    font-weight: 700;
+}
+
+.form-card #verificationStage > p,
+.form-card #paymentStage > p {
+    color: #52627a !important;
+}
+
+.form-card #verificationStage label,
+.form-card #paymentStage label {
+    color: #17263d !important;
+}
+
+.form-card .application-number-box {
+    color: #17263d !important;
+    background: #f4fbfa !important;
+    border: 1px solid rgba(21,155,148,.25) !important;
+}
+
+.form-card .application-number-label {
+    color: #68788e !important;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.form-card .payment-summary {
+    color: #17263d !important;
+    background: #f4fbfa !important;
+    border: 1px solid rgba(21,155,148,.25) !important;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.form-card .payment-summary .payment-label {
+    color: #68788e !important;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.form-card .payment-summary .payment-amount {
+    color: #102038 !important;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: 6px;
+}
+
+.form-card .payment-summary .payment-currency {
+    color: #52627a !important;
+    margin-top: 5px;
+}
+
+.form-card .payment-instructions {
+    background: #f8fafc !important;
+    border: 1px solid #dce4ec !important;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-card .payment-instructions h3 {
+    color: #102038 !important;
+    margin-bottom: 10px;
+}
+
+.form-card .payment-instructions p,
+.form-card .payment-instructions li {
+    color: #52627a !important;
+}
+
+.form-card .upload-box {
+    background: #f8fafc !important;
+    border: 1px dashed #b8c6d5 !important;
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.form-card .upload-box h3 {
+    color: #102038 !important;
+    margin-bottom: 8px;
+}
+
+.form-card .upload-box p {
+    color: #52627a !important;
+}
+
+.form-card .upload-box input[type="file"] {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #d7e0e8 !important;
+    border-radius: 10px;
+    background: #ffffff !important;
+    color: #17263d !important;
+}
+
+.form-card .upload-note {
+    color: #68788e !important;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.form-card .upload-success {
+    color: #159b94 !important;
+    font-weight: 600;
+}
+
+.form-card .upload-error {
+    color: #c0392b !important;
+    font-weight: 600;
+}
+
+.form-card .btn {
+    color: #07111f !important;
+}
+
+.form-card .btn-primary {
+    color: #07111f !important;
+}
+
+.form-card .btn:disabled {
+    color: #52627a !important;
+}
+
+.form-card a {
+    color: #159b94 !important;
+}
+
+.form-card a:hover {
+    color: #0d7f78 !important;
+}
+
+.form-card small {
+    color: #68788e !important;
+}
+
+.form-card .muted {
+    color: #68788e !important;
+}
+
+.form-card .secondary-text {
+    color: #52627a !important;
+}
+
+.form-card .error {
+    color: #c0392b !important;
+}
+
+.form-card .success {
+    color: #159b94 !important;
+}
+
+.form-card [hidden] {
+    display: none !important;
+}
+
+.status-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #159b94 !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.status-link:hover {
+    color: #0d7f78 !important;
+    text-decoration: underline;
+}
+
+.upload-button {
+    margin-top: 16px;
+}
+
+.payment-complete-box {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    background: #f1fbf9;
+    border: 1px solid rgba(21,155,148,.25);
+}
+
+.payment-complete-box strong {
+    color: #159b94 !important;
+}
+
+@media (max-width: 700px) {
+    .form-card .payment-summary .payment-amount {
+        font-size: 36px;
+    }
+
+    .form-card .upload-box,
+    .form-card .payment-instructions,
+    .form-card .payment-summary {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+<div class="container nav">
+
+<a href="index.html" class="brand">
+<span class="logo">A</span>
+<span>AuroraVale</span>
+</a>
+
+<nav class="nav-links">
+<a href="about.html">About</a>
+<a href="program.html">Programs</a>
+<a href="destinations.html">Destinations</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="faq.html">FAQ</a>
+<a href="status.html">Check Status</a>
+<a href="apply.html" class="nav-cta">Apply</a>
+</nav>
+
+<button class="mobile-menu" aria-label="Menu">☰</button>
+
+</div>
+</header>
+
+<main>
+
+<section class="page-hero">
+<div class="container">
+
+<div class="eyebrow">Application</div>
+
+<h1>Your journey starts here.</h1>
+
+<p>
+Complete the basic information below. The first stage is designed to be simple and straightforward, without unnecessary documentation.
+</p>
+
+</div>
+</section>
+
+
+<section class="form-section">
+<div class="container">
+
+<div class="form-card">
+
+
+<div id="applicationStage">
+
+<h2>International Participation Application</h2>
+
+<p style="margin-top:10px;">
+Complete the form below to begin your application. The participation fee is $20 and is completed after the required application and email verification steps.
+</p>
+
+
+<form id="applicationForm">
+
+<div class="form-grid">
+
+<div class="field">
+<label for="name">Full Name</label>
+<input id="name" name="name" type="text" autocomplete="name" required>
+</div>
+
+
+<div class="field">
+<label for="country">Country of Residence</label>
+<input id="country" name="country" type="text" autocomplete="country-name" required>
+</div>
+
+
+<div class="field">
+<label for="city">City</label>
+<input id="city" name="city" type="text" autocomplete="address-level2" required>
+</div>
+
+
+<div class="field">
+<label for="email">Email Address</label>
+<input id="email" name="email" type="email" autocomplete="email" required>
+</div>
+
+
+<div class="field">
+<label for="phone">Phone / WhatsApp</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel" required>
+</div>
+
+
+<div class="field">
+<label for="organization">Organization / Initiative Name</label>
+<input id="organization" name="organization" type="text">
+</div>
+
+
+<div class="field">
+<label for="organizationType">Organization Type</label>
+
+<select id="organizationType" name="organizationType">
+
+<option value="">Select if applicable</option>
+<option>Nonprofit / NGO</option>
+<option>Community Organization</option>
+<option>Social Initiative</option>
+<option>Educational Organization</option>
+<option>Private Organization</option>
+<option>Other</option>
+<option>Individual Participant</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+<label for="role">Your Role</label>
+
+<input
+id="role"
+name="role"
+type="text"
+placeholder="Representative, Founder, Member, etc."
+>
+
+</div>
+
+
+<div class="field">
+<label for="destination">Preferred Destination</label>
+
+<select id="destination" name="destination" required>
+
+<option value="">Select destination</option>
+<option>Australia</option>
+<option>United Kingdom</option>
+<option>United States</option>
+<option>Canada</option>
+<option>United Arab Emirates</option>
+<option>Türkiye</option>
+<option>Malaysia</option>
+<option>Japan</option>
+<option>South Korea</option>
+<option>Other Available Destination</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+<label for="passport">Passport Status</label>
+
+<select id="passport" name="passport" required>
+
+<option value="">Select status</option>
+<option>I have a valid passport</option>
+<option>I am currently obtaining my passport</option>
+<option>I do not currently have a passport</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+
+<label for="purpose">
+Why would you like to participate?
+</label>
+
+<textarea
+id="purpose"
+name="purpose"
+required
+></textarea>
+
+</div>
+
+
+<div class="field full">
+
+<label for="organizationInfo">
+Tell us briefly about your organization or initiative
+</label>
+
+<textarea
+id="organizationInfo"
+name="organizationInfo"
+placeholder="Optional if applying as an individual"
+></textarea>
+
+</div>
+
+
+<div class="field full">
+
+<label for="additional">
+Additional Information
+</label>
+
+<textarea
+id="additional"
+name="additional"
+></textarea>
+
+</div>
+
+</div>
+
+
+<label class="check">
+
+<input
+id="accuracyConfirmation"
+type="checkbox"
+required
+>
+
+<span>
+I confirm that the information provided is accurate to the best of my knowledge.
+</span>
+
+</label>
+
+
+<label class="check">
+
+<input
+id="selectionConfirmation"
+type="checkbox"
+required
+>
+
+<span>
+I understand that completing the application and paying the $20 participation fee does not guarantee selection, travel, visa approval or a specific destination.
+</span>
+
+</label>
+
+
+<div class="form-actions">
+
+<button
+id="submitApplication"
+type="submit"
+class="btn btn-primary"
+>
+Continue to Email Verification &amp; Payment
+</button>
+
+</div>
+
+
+<p
+id="formStatus"
+style="margin-top:18px;"
+role="status"
+aria-live="polite"
+></p>
+
+</form>
+
+</div>
+
+
+
+<div id="verificationStage" hidden>
+
+<h2>Verify Your Email</h2>
+
+<p style="margin-top:10px;">
+
+We received your application. A 6-digit verification code has been sent to
+
+<strong id="verificationEmail"></strong>.
+
+</p>
+
+
+<div
+style="
+margin-top:24px;
+padding:18px 20px;
+border-radius:14px;
+background:#f4fbfa;
+border:1px solid rgba(21,155,148,.25);
+"
+>
+
+<div class="application-number-label">
+Application Number
+</div>
+
+<div
+id="applicationNumberDisplay"
+style="
+margin-top:8px;
+font-size:22px;
+font-weight:700;
+letter-spacing:.04em;
+"
+></div>
+
+</div>
+
+
+<div style="margin-top:24px;">
+
+<label for="verificationCode">
+Verification Code
+</label>
+
+<input
+id="verificationCode"
+type="text"
+inputmode="numeric"
+autocomplete="one-time-code"
+maxlength="6"
+placeholder="Enter 6-digit code"
+style="margin-top:8px;"
+>
+
+</div>
+
+
+<div class="form-actions" style="margin-top:20px;">
+
+<button
+id="verifyEmailButton"
+type="button"
+class="btn btn-primary"
+>
+Verify Email
+</button>
+
+</div>
+
+
+<div style="margin-top:16px;">
+
+<button
+id="resendCodeButton"
+type="button"
+class="btn"
+>
+Resend Code
+</button>
+
+</div>
+
+
+<p
+id="verificationStatus"
+style="margin-top:18px;"
+role="status"
+aria-live="polite"
+></p>
+
+
+<p style="margin-top:20px;font-size:14px;">
+
+Check your inbox and spam/junk folder if the verification email does not appear immediately.
+
+</p>
+
+</div>
+
+
+
+<div id="paymentStage" hidden>
+
+<h2>Email Verified Successfully</h2>
+
+<p style="margin-top:10px;">
+
+Your email address has been verified. Please complete the $20 participation/application fee using the payment instructions sent to your verified email address.
+
+</p>
+
+
+<div
+class="application-number-box"
+style="margin-top:24px;padding:18px 20px;border-radius:14px;"
+>
+
+<div class="application-number-label">
+Application Number
+</div>
+
+<div
+id="paymentApplicationNumber"
+style="
+margin-top:8px;
+font-size:22px;
+font-weight:700;
+letter-spacing:.04em;
+color:#35d9ca !important;
+"
+></div>
+
+</div>
+
+
+<div class="payment-summary">
+
+<div class="payment-label">
+Application / Participation Fee
+</div>
+
+<div class="payment-amount">
+$20
+</div>
+
+<div class="payment-currency">
+USD per application
+</div>
+
+</div>
+
+
+<div class="payment-instructions">
+
+<h3>
+Payment Instructions
+</h3>
+
+<p>
+Payment instructions and the applicable account information have been sent to your verified email address.
+</p>
+
+<p style="margin-top:12px;">
+Complete the payment using the information provided in that email.
+</p>
+
+<p style="margin-top:12px;">
+After making the payment, return to this page and upload a clear screenshot of your payment confirmation.
+</p>
+
+</div>
+
+
+<div class="upload-box">
+
+<h3>
+Upload Payment Confirmation
+</h3>
+
+<p>
+Upload a clear screenshot showing your completed payment.
+</p>
+
+<p class="upload-note">
+Accepted formats: JPG, JPEG, PNG or WEBP. Maximum file size: 5 MB.
+</p>
+
+
+<input
+id="paymentScreenshot"
+type="file"
+accept="image/jpeg,image/png,image/webp"
+>
+
+
+<button
+id="uploadPaymentButton"
+type="button"
+class="btn btn-primary upload-button"
+>
+Upload Payment Screenshot
+</button>
+
+
+<p
+id="uploadStatus"
+style="margin-top:14px;"
+role="status"
+aria-live="polite"
+></p>
+
+</div>
+
+
+<div
+id="paymentCompleteBox"
+class="payment-complete-box"
+hidden
+>
+
+<strong>
+Payment screenshot received.
+</strong>
+
+<p style="margin-top:7px;">
+Your payment confirmation has been submitted for review.
+</p>
+
+</div>
+
+
+<p
+style="margin-top:20px;"
+>
+
+Payment confirmation does not guarantee selection, travel, visa approval or a specific destination.
+
+</p>
+
+
+<p
+id="paymentStatus"
+style="margin-top:18px;"
+role="status"
+aria-live="polite"
+></p>
+
+
+<a
+href="status.html"
+class="status-link"
+>
+Check your application status
+</a>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="grid-3">
+
+
+<div class="card">
+
+<div class="icon-box">
+01
+</div>
+
+<h3>
+Apply
+</h3>
+
+<p>
+Provide basic information about yourself and your intended participation.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon-box">
+02
+</div>
+
+<h3>
+Verify Email
+</h3>
+
+<p>
+Confirm your email address through a secure 6-digit verification code.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon-box">
+03
+</div>
+
+<h3>
+Pay $20
+</h3>
+
+<p>
+Complete the participation/application fee and submit your payment confirmation for review.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer class="site-footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<div class="brand">
+<span class="logo">A</span>
+<span>AuroraVale</span>
+</div>
+
+<p>
+Global travel, international participation and cross-border opportunities.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+Explore
+</h4>
+
+<a href="about.html">
+About
+</a>
+
+<a href="program.html">
+Programs
+</a>
+
+<a href="destinations.html">
+Destinations
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+Participation
+</h4>
+
+<a href="eligibility.html">
+Participation
+</a>
+
+<a href="apply.html">
+Apply
+</a>
+
+<a href="faq.html">
+FAQ
+</a>
+
+<a href="status.html">
+Check Status
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+Legal
+</h4>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 AuroraVale. All rights reserved.
+</span>
+
+<span>
+Global Travel &amp; International Participation
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+const API_BASE_URL = "http://localhost:5000/api";
+
+const applicationForm =
+document.getElementById("applicationForm");
+
+const applicationStage =
+document.getElementById("applicationStage");
+
+const verificationStage =
+document.getElementById("verificationStage");
+
+const paymentStage =
+document.getElementById("paymentStage");
+
+const formStatus =
+document.getElementById("formStatus");
+
+const verificationStatus =
+document.getElementById("verificationStatus");
+
+const paymentStatus =
+document.getElementById("paymentStatus");
+
+const uploadStatus =
+document.getElementById("uploadStatus");
+
+const submitApplication =
+document.getElementById("submitApplication");
+
+const verifyEmailButton =
+document.getElementById("verifyEmailButton");
+
+const resendCodeButton =
+document.getElementById("resendCodeButton");
+
+const uploadPaymentButton =
+document.getElementById("uploadPaymentButton");
+
+const verificationEmail =
+document.getElementById("verificationEmail");
+
+const applicationNumberDisplay =
+document.getElementById("applicationNumberDisplay");
+
+const paymentApplicationNumber =
+document.getElementById("paymentApplicationNumber");
+
+const verificationCode =
+document.getElementById("verificationCode");
+
+const paymentScreenshot =
+document.getElementById("paymentScreenshot");
+
+const paymentCompleteBox =
+document.getElementById("paymentCompleteBox");
+
+let currentApplicationNumber = "";
+
+let currentApplicationEmail = "";
+
+
+function setStatus(element, message, type) {
+
+    if (!element) {
+        return;
+    }
+
+    element.textContent = message;
+
+    if (type === "error") {
+        element.style.color = "#c0392b";
+    } else {
+        element.style.color = "#159b94";
+    }
+
+}
+
+
+function setButtonState(button, disabled, text) {
+
+    if (!button) {
+        return;
+    }
+
+    button.disabled = disabled;
+
+    if (text) {
+        button.textContent = text;
+    }
+
+}
+
+
+function getApplicationPayload() {
+
+    return {
+
+        fullName:
+        document.getElementById("name").value.trim(),
+
+        country:
+        document.getElementById("country").value.trim(),
+
+        city:
+        document.getElementById("city").value.trim(),
+
+        email:
+        document.getElementById("email").value.trim(),
+
+        phone:
+        document.getElementById("phone").value.trim(),
+
+        organizationName:
+        document.getElementById("organization").value.trim(),
+
+        organizationType:
+        document.getElementById("organizationType").value.trim(),
+
+        role:
+        document.getElementById("role").value.trim(),
+
+        destination:
+        document.getElementById("destination").value.trim(),
+
+        passportStatus:
+        document.getElementById("passport").value.trim(),
+
+        purpose:
+        document.getElementById("purpose").value.trim(),
+
+        organizationInfo:
+        document.getElementById("organizationInfo").value.trim(),
+
+        additional:
+        document.getElementById("additional").value.trim()
+
+    };
+
+}
+
+
+function saveApplicationDetails() {
+
+    localStorage.setItem(
+        "auroravale_application_number",
+        currentApplicationNumber
+    );
+
+    localStorage.setItem(
+        "auroravale_application_email",
+        currentApplicationEmail
+    );
+
+}
+
+
+function restoreApplicationDetails() {
+
+    const savedNumber =
+        localStorage.getItem(
+            "auroravale_application_number"
+        );
+
+    const savedEmail =
+        localStorage.getItem(
+            "auroravale_application_email"
+        );
+
+    const verified =
+        localStorage.getItem(
+            "auroravale_email_verified"
+        );
+
+    const screenshotSubmitted =
+        localStorage.getItem(
+            "auroravale_payment_screenshot_submitted"
+        );
+
+    if (
+        savedNumber &&
+        savedEmail
+    ) {
+
+        currentApplicationNumber =
+        savedNumber;
+
+        currentApplicationEmail =
+        savedEmail;
+
+    }
+
+    if (
+        screenshotSubmitted === "true"
+    ) {
+
+        if (paymentCompleteBox) {
+            paymentCompleteBox.hidden = false;
+        }
+
+        if (uploadPaymentButton) {
+            uploadPaymentButton.disabled = true;
+            uploadPaymentButton.textContent =
+                "Payment Screenshot Submitted";
+        }
+
+    }
+
+}
+
+
+applicationForm.addEventListener(
+"submit",
+async function(event) {
+
+    event.preventDefault();
+
+    if (!applicationForm.checkValidity()) {
+
+        applicationForm.reportValidity();
+
+        return;
+
+    }
+
+    const payload =
+        getApplicationPayload();
+
+    setButtonState(
+        submitApplication,
+        true,
+        "Submitting Application..."
+    );
+
+    setStatus(
+        formStatus,
+        "Submitting your application securely...",
+        "success"
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/applications`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+                    body:
+                    JSON.stringify(payload)
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to submit the application."
+            );
+
+        }
+
+
+        currentApplicationNumber =
+            data.application.application_number;
+
+        currentApplicationEmail =
+            payload.email.toLowerCase();
+
+
+        verificationEmail.textContent =
+            payload.email;
+
+        applicationNumberDisplay.textContent =
+            currentApplicationNumber;
+
+        paymentApplicationNumber.textContent =
+            currentApplicationNumber;
+
+
+        saveApplicationDetails();
+
+
+        applicationStage.hidden = true;
+
+        verificationStage.hidden = false;
+
+
+        setStatus(
+            verificationStatus,
+            "Sending your verification code...",
+            "success"
+        );
+
+
+        await sendVerificationCode();
+
+
+    } catch (error) {
+    setStatus(
+        formStatus,
+        error.message ||
+        "Unable to submit the application. Please try again.",
+        "error"
+    );
+
+    setButtonState(
+        submitApplication,
+        false,
+        "Continue to Email Verification & Payment"
+    );
+}
+
+});
+
+
+async function sendVerificationCode() {
+
+    setButtonState(
+        resendCodeButton,
+        true,
+        "Sending..."
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/verification/${encodeURIComponent(currentApplicationNumber)}/send`,
+                {
+                    method: "POST"
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to send the verification code."
+            );
+
+        }
+
+
+        setStatus(
+            verificationStatus,
+            "A new 6-digit verification code has been sent to your email.",
+            "success"
+        );
+
+
+    } catch (error) {
+
+        setStatus(
+            verificationStatus,
+            error.message ||
+            "Unable to send the verification code.",
+            "error"
+        );
+
+
+    } finally {
+
+        setButtonState(
+            resendCodeButton,
+            false,
+            "Resend Code"
+        );
+
+    }
+
+}
+
+
+verifyEmailButton.addEventListener(
+"click",
+async function() {
+
+    const code =
+        verificationCode.value.trim();
+
+
+    if (
+        !/^\d{6}$/.test(code)
+    ) {
+
+        setStatus(
+            verificationStatus,
+            "Please enter the 6-digit verification code.",
+            "error"
+        );
+
+        verificationCode.focus();
+
+        return;
+
+    }
+
+
+    setButtonState(
+        verifyEmailButton,
+        true,
+        "Verifying..."
+    );
+
+
+    setStatus(
+        verificationStatus,
+        "Checking your verification code...",
+        "success"
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/verification/${encodeURIComponent(currentApplicationNumber)}/verify`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+                    body:
+                    JSON.stringify({
+                        code
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Verification failed."
+            );
+
+        }
+
+
+        localStorage.setItem(
+            "auroravale_email_verified",
+            "true"
+        );
+
+
+        verificationStage.hidden =
+            true;
+
+        paymentStage.hidden =
+            false;
+
+
+        paymentApplicationNumber.textContent =
+            currentApplicationNumber;
+
+
+        setStatus(
+            paymentStatus,
+            "Email verified successfully. Payment instructions have been sent to your verified email address.",
+            "success"
+        );
+
+
+    } catch (error) {
+
+        setStatus(
+            verificationStatus,
+            error.message ||
+            "Verification failed. Please try again.",
+            "error"
+        );
+
+
+    } finally {
+
+        setButtonState(
+            verifyEmailButton,
+            false,
+            "Verify Email"
+        );
+
+    }
+
+});
+
+
+resendCodeButton.addEventListener(
+"click",
+async function() {
+
+    if (!currentApplicationNumber) {
+
+        setStatus(
+            verificationStatus,
+            "Application information is missing. Please start the application again.",
+            "error"
+        );
+
+        return;
+
+    }
+
+    await sendVerificationCode();
+
+});
+
+
+verificationCode.addEventListener(
+"input",
+function() {
+
+    this.value =
+        this.value
+        .replace(/\D/g, "")
+        .slice(0, 6);
+
+});
+
+
+paymentScreenshot.addEventListener(
+"change",
+function() {
+
+    const file =
+        this.files &&
+        this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+
+    const maximumSize =
+        5 * 1024 * 1024;
+
+
+    if (
+        !allowedTypes.includes(
+            file.type
+        )
+    ) {
+
+        this.value = "";
+
+        setStatus(
+            uploadStatus,
+            "Only JPG, JPEG, PNG and WEBP images are allowed.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        file.size > maximumSize
+    ) {
+
+        this.value = "";
+
+        setStatus(
+            uploadStatus,
+            "The payment screenshot must be 5 MB or smaller.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    setStatus(
+        uploadStatus,
+        `${file.name} is ready to upload.`,
+        "success"
+    );
+
+});
+
+
+uploadPaymentButton.addEventListener(
+"click",
+async function() {
+
+    if (
+        !currentApplicationNumber ||
+        !currentApplicationEmail
+    ) {
+
+        setStatus(
+            uploadStatus,
+            "Application information is missing. Please start the application again.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const file =
+        paymentScreenshot.files &&
+        paymentScreenshot.files[0];
+
+
+    if (!file) {
+
+        setStatus(
+            uploadStatus,
+            "Please select your payment screenshot first.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+
+    const maximumSize =
+        5 * 1024 * 1024;
+
+
+    if (
+        !allowedTypes.includes(
+            file.type
+        )
+    ) {
+
+        setStatus(
+            uploadStatus,
+            "Only JPG, JPEG, PNG and WEBP images are allowed.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        file.size > maximumSize
+    ) {
+
+        setStatus(
+            uploadStatus,
+            "The payment screenshot must be 5 MB or smaller.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    setButtonState(
+        uploadPaymentButton,
+        true,
+        "Uploading..."
+    );
+
+
+    setStatus(
+        uploadStatus,
+        "Uploading your payment confirmation securely...",
+        "success"
+    );
+
+
+    try {
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "applicationNumber",
+            currentApplicationNumber
+        );
+
+
+        formData.append(
+            "email",
+            currentApplicationEmail
+        );
+
+
+        formData.append(
+            "paymentScreenshot",
+            file
+        );
+
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/payments/screenshot`,
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to upload the payment screenshot."
+            );
+
+        }
+
+
+        localStorage.setItem(
+            "auroravale_payment_screenshot_submitted",
+            "true"
+        );
+
+
+        paymentCompleteBox.hidden =
+            false;
+
+
+        paymentScreenshot.disabled =
+            true;
+
+
+        setButtonState(
+            uploadPaymentButton,
+            true,
+            "Payment Screenshot Submitted"
+        );
+
+
+        setStatus(
+            uploadStatus,
+            "Payment screenshot received successfully.",
+            "success"
+        );
+
+
+        setStatus(
+            paymentStatus,
+            "Your payment confirmation has been received and is awaiting review.",
+            "success"
+        );
+
+
+    } catch (error) {
+
+        setStatus(
+            uploadStatus,
+            error.message ||
+            "Unable to upload the payment screenshot. Please try again.",
+            "error"
+        );
+
+
+        setButtonState(
+            uploadPaymentButton,
+            false,
+            "Upload Payment Screenshot"
+        );
+
+    }
+
+});
+
+
+restoreApplicationDetails();
+
+</script>
+
+</body>
+</html>
